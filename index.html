@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Portfolio</title>
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+    <!-- Ocean Background Canvas (hero section only) -->
+    <canvas id="ocean-canvas"></canvas>
+
+    <!-- Splash Animation Layer -->
+    <div class="splash-container">
+        <div class="splash splash-1" id="s1"></div>
+        <div class="splash splash-2" id="s2"></div>
+        <div class="splash splash-3" id="s3"></div>
+        <div class="splash splash-4" id="s4"></div>
+    </div>
+
+    <!-- Wrapping entire site content for intro animation -->
+    <main id="main-content" style="z-index: 10; position: relative;">
+
+    <!-- Navigation -->
+    <header class="header">
+        <div class="logo">ABISHEK S.</div>
+        <nav>
+            <a href="#hero">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="./resume.html" target="_blank" rel="noopener noreferrer">Resume</a>
+            <a href="#feedback">Feedback</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero / Assembly Section -->
+    <section id="hero" class="hero-section" style="overflow: hidden;">
+        <div class="hero-assembly-container">
+            <h1 class="hero-title assemble-item">CREATIVE</h1>
+            <h1 class="hero-subtitle assemble-item">WEB DEVELOPER</h1>
+            <div class="hero-image assemble-item img-1">
+               <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=400&h=400" alt="Tech Setup">
+            </div>
+            <div class="hero-image assemble-item img-2">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=400&h=400" alt="Code Screen">
+            </div>
+            <p class="hero-desc assemble-item">Crafting digital experiences with creative ideas and mordern technology.</p>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="about-section">
+        <!-- Floating background trait words -->
+        <div class="about-floating-words">
+            <span class="float-word fw-1">Creative</span>
+            <span class="float-word fw-2">Innovate</span>
+            <span class="float-word fw-3">Dream</span>
+            <span class="float-word fw-4">Build</span>
+            <span class="float-word fw-5">Vision</span>
+            <span class="float-word fw-6">Explore</span>
+            <span class="float-word fw-7">Think</span>
+            <span class="float-word fw-8">Design</span>
+        </div>
+
+        <!-- Section Heading -->
+        <div class="about-heading-wrapper">
+            <h2 class="about-heading">
+                <span class="about-heading-outline">ABOUT</span>
+                <span class="about-heading-filled">ME</span>
+            </h2>
+            <div class="about-heading-line"></div>
+        </div>
+
+        <!-- Bento Grid Layout -->
+        <div class="about-bento">
+            <!-- Main bio card -->
+            <div class="bento-card bento-main" id="bento-main">
+                <div class="bento-card-inner">
+                    <p class="about-bio">
+                        I'm a <span class="highlight">Creative Developer.</span> I design and develop responsive, high-performance websites tailored to your goals, focusing on clean code, modern UI, and user experience to deliver fast, scalable solutions that <span class="highlight">improve engagement and support your business growth.</span>
+                    </p>
+                    <p class="about-bio-sub">
+                        Fueled by curiosity. Driven by aesthetics. Obsessed with the craft.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Stats cards -->
+
+            <div class="bento-card bento-stat" id="bento-stat-2">
+                <span class="stat-number" data-count="1">0</span>
+                <span class="stat-label">Year of Code</span>
+            </div>
+
+            <div class="bento-card bento-stat bento-stat-inf" id="bento-stat-3">
+                <span class="stat-number stat-inf">∞</span>
+                <span class="stat-label">Ideas</span>
+            </div>
+
+            <!-- Philosophy card -->
+            <div class="bento-card bento-philosophy" id="bento-philosophy">
+                <div class="philosophy-quote">"</div>
+                <p class="philosophy-text">Design is not just what it looks like. Design is how it <em>feels</em>.</p>
+            </div>
+        </div>
+
+        <!-- Scrolling Marquee -->
+        <div class="about-marquee">
+            <div class="marquee-track">
+                <span>FRONTEND ✦ UI/UX ✦ ANIMATION ✦ CREATIVE CODE ✦ 3D ✦ AI ✦ DESIGN ✦ INNOVATION ✦ FRONTEND ✦ UI/UX ✦ ANIMATION ✦ CREATIVE CODE ✦ 3D ✦ AI ✦ DESIGN ✦ INNOVATION ✦&nbsp;</span>
+                <span>FRONTEND ✦ UI/UX ✦ ANIMATION ✦ CREATIVE CODE ✦ 3D ✦ AI ✦ DESIGN ✦ INNOVATION ✦ FRONTEND ✦ UI/UX ✦ ANIMATION ✦ CREATIVE CODE ✦ 3D ✦ AI ✦ DESIGN ✦ INNOVATION ✦&nbsp;</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills / AI Section -->
+    <section id="skills" class="skills-section">
+        <!-- Edge Background Combiner Animation -->
+        <div class="skill-bg-edge edge-left"></div>
+        <div class="skill-bg-edge edge-right"></div>
+
+        <!-- Background AI Logos Container -->
+        <div class="ai-logos-bg">
+            <div class="ai-logo ai-1">OpenAI</div>
+            <div class="ai-logo ai-2">Claude</div>
+            <div class="ai-logo ai-3">Gemini</div>
+            <div class="ai-logo ai-4">Midjourney</div>
+            <div class="ai-logo ai-5">Llama</div>
+        </div>
+        
+        <div class="skills-content-wrapper">
+            <h2 class="section-heading skills-heading">My Skills & Arsenal</h2>
+            <div class="skills-content">
+                <div class="skill-card">Frontend Development</div>
+                <div class="skill-card">UI/UX Design</div>
+                <div class="skill-card">3D Animations</div>
+                <div class="skill-card">AI Integrations</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="slider-container">
+            <!-- Curved glowing transperant box slider -->
+            <div class="glowing-box-slider">
+                <h3 class="slider-main-title">DESIGNS</h3>
+                
+                <div class="slider-wrapper">
+                    <div class="slider-track" id="slider-track">
+                        <div class="slide-item">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&q=80&w=600" alt="Code Alpha">
+                                        <div class="info-icon">i</div>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <h4 class="back-title">Clean & Professional</h4>
+                                        <p class="back-subtitle">Best for individuals and small projects</p>
+                                        <ul class="back-details">
+                                            <li><strong>Delivery:</strong> 3–4 Days</li>
+                                            <li><strong>Interface:</strong> Minimal, clean layout with smooth responsiveness</li>
+                                            <li><strong>Includes:</strong> 1–3 pages, mobile-friendly design, basic SEO, contact form</li>
+                                            <li><strong>Price:</strong> ₹500 – ₹800</li>
+                                        </ul>
+                                        <p class="back-desc">A simple, polished website designed to establish your online presence quickly with a clean interface and reliable performance.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slide-content">Clean & Professional (ALPHA)</div>
+                        </div>
+                        <div class="slide-item">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <img src="https://images.unsplash.com/photo-1551033406-611cf9a28f67?auto=format&fit=crop&q=80&w=600" alt="Code Beta">
+                                        <div class="info-icon">i</div>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <h4 class="back-title">Value-Focused</h4>
+                                        <p class="back-subtitle">Best for growing businesses and startups</p>
+                                        <ul class="back-details">
+                                            <li><strong>Delivery:</strong> 7–8 Days</li>
+                                            <li><strong>Interface:</strong> Modern UI with structured layout and subtle animations</li>
+                                            <li><strong>Includes:</strong> 4–8 pages, custom design, performance optimization, integrations</li>
+                                            <li><strong>Price:</strong> ₹2000 – ₹2500</li>
+                                        </ul>
+                                        <p class="back-desc">A well-crafted website that balances design and functionality, helping you attract users, improve engagement, and scale your presence effectively.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slide-content">Value-Focused (BETA)</div>
+                        </div>
+                        <div class="slide-item">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <img src="https://images.unsplash.com/photo-1605379399642-870262d3d051?auto=format&fit=crop&q=80&w=600" alt="Code Gamma">
+                                        <div class="info-icon">i</div>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <h4 class="back-title">Premium</h4>
+                                        <p class="back-subtitle">Best for brands that want impact and performance</p>
+                                        <ul class="back-details">
+                                            <li><strong>Delivery:</strong> 12-14 Days</li>
+                                            <li><strong>Interface:</strong> Fully custom, visually rich with advanced interactions</li>
+                                            <li><strong>Includes:</strong> Unlimited pages, advanced animations, SEO optimization, priority support</li>
+                                            <li><strong>Price:</strong> ₹6000 – ₹6500+</li>
+                                        </ul>
+                                        <p class="back-desc">A high-end, fully customized website built for performance, scalability, and strong brand impact—designed to stand out and deliver real business results.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slide-content">Premium (GAMMA)</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slider-controls">
+                    <button class="slider-btn" id="prev-slide">&lt;</button>
+                    <button class="slider-btn" id="next-slide">&gt;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feedback Section -->
+    <section id="feedback" class="feedback-section">
+        <h1 class="feedback-title">Leave Feedback</h1>
+        <div class="feedback-wrapper">
+            <form id="feedback-form" name="feedback" method="POST" data-netlify="true" class="feedback-form-glass">
+                <input type="hidden" name="form-name" value="feedback">
+                <p class="glass-desc" style="text-align: center;">Your feedback helps me improve.</p>
+                <input type="text" name="name" placeholder="Name" required>
+                <textarea name="opinion" placeholder="Tell your opinion..." required></textarea>
+                <input type="hidden" name="rating" id="rating-input" value="0">
+                <div class="rating-box">
+                    <span>Rate my work:</span>
+                    <div class="stars" id="feedback-stars">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+                </div>
+                <button type="submit" class="glow-button" id="feedback-submit">Submit Feedback</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Us Section (Corporate Style) -->
+    <section id="contact" class="contact-section">
+        <h2 class="contact-heading">Contact Us</h2>
+        <div class="corporate-contact-container">
+            <div class="contact-item">
+                <div class="contact-icon">📧</div>
+                <div class="contact-info">
+                    <h3>Email</h3>
+                    <p>abisheksivaraj2007@gmail.com</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">📱</div>
+                <div class="contact-info">
+                    <h3>Phone</h3>
+                    <p>+91 9488254937</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">📍</div>
+                <div class="contact-info">
+                    <h3>Location</h3>
+                    <p>Tamil Nadu, India</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">💼</div>
+                <div class="contact-info">
+                    <h3>LinkedIn</h3>
+                    <p>www.linkedin.com/in/abishek-raj3017</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- GSAP & ScrollTrigger Core -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Custom Logic -->
+    <script defer src="./src/script.js"></script>
+</body>
+</html>

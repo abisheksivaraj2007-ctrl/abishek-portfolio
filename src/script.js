@@ -1,8 +1,7 @@
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-// Register GSAP ScrollTrigger
-gsap.registerPlugin(ScrollTrigger);
+// Register GSAP ScrollTrigger (using global gsap from CDN)
+if (typeof gsap !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+}
 
 // Force scroll to top on load to prevent ScrollTrigger jumping bugs
 if ('scrollRestoration' in history) {

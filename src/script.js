@@ -329,72 +329,88 @@ function spawnBubble(x, y) {
     setTimeout(() => b.remove(), dur * 1000 + 50);
 }
 
-// =====================================================================
-// INTRO SPLASH ANIMATION (GSAP)
-// =====================================================================
-const introTl = gsap.timeline();
-
-// Set initial state that was removed from inline HTML
-gsap.set("#main-content", { opacity: 0, scale: 0.5, y: 50 });
-
-introTl.to(".splash", {
-    opacity: 1,
-    scale: 2,
-    duration: 0.5,
-    ease: "power2.out",
-    stagger: 0.05
-})
-.to("#s1", { top: "50%", left: "50%", xPercent: -50, yPercent: -50, duration: 0.7, ease: "power3.inOut" }, "mix")
-.to("#s2", { top: "50%", left: "50%", xPercent: -50, yPercent: -50, duration: 0.7, ease: "power3.inOut" }, "mix")
-.to("#s3", { top: "50%", left: "50%", xPercent: -50, yPercent: -50, duration: 0.7, ease: "power3.inOut" }, "mix")
-.to("#s4", { top: "50%", left: "50%", xPercent: -50, yPercent: -50, duration: 0.7, ease: "power3.inOut" }, "mix")
-.to(".splash", {
-    scale: 30,
-    opacity: 0,
-    duration: 0.8,
-    ease: "power2.inOut",
-    onComplete: () => {
+// Failsafe: If GSAP fails to load or the intro hangs, reveal content anyway
+const failsafe = setTimeout(() => {
+    const mainContent = document.getElementById('main-content');
+    if (mainContent && mainContent.style.opacity === "0") {
+        gsap.to("#main-content", { opacity: 1, scale: 1, y: 0, duration: 0.5 });
         document.querySelector('.splash-container').style.display = 'none';
     }
-}, "mix+=0.5")
-.to("#main-content", {
-    opacity: 1,
-    scale: 1,
-    y: 0,
-    duration: 1.0,
-    ease: "elastic.out(1, 0.5)"
-}, "mix+=0.6");
+}, 3500);
 
-// Hero items entrance assembly
-const heroTextItems = document.querySelectorAll('.assemble-item:not(.hero-image)'); 
-const heroImgItems = document.querySelectorAll('.hero-image');
+if (typeof gsap !== 'undefined') {
+    const introTl = gsap.timeline({
+        onComplete: () => clearTimeout(failsafe)
+    });
 
-heroTextItems.forEach((item, index) => {
-    introTl.from(item, {
-        x: () => (Math.random() - 0.5) * 500,
-        y: () => (Math.random() - 0.5) * 500,
+    // Set initial state
+    gsap.set("#main-content", { opacity: 0, scale: 0.5, y: 50 });
+
+    introTl.to(".splash", {
+        opacity: 1,
+        scale: 2,
+        duration: 0.5,
+        ease: "power2.out",
+        stagger: 0.05
+    })
+    .to("#s1", { top: "50%", left: "50%", xPercent: -50, yPercent: -50, duration: 0.7, ease: "power3.inOut" }, "mix")
+    .to("#s2", { top: "50%", left: "50%", xPercent: -50, yPercent: -50, duration: 0.7, ease: "power3.inOut" }, "mix")
+    .to("#s3", { top: "50%", left: "50%", xPercent: -50, yPercent: -50, duration: 0.7, ease: "power3.inOut" }, "mix")
+    .to("#s4", { top: "50%", left: "50%", xPercent: -50, yPercent: -50, duration: 0.7, ease: "power3.inOut" }, "mix")
+    .to(".splash", {
+        scale: 30,
         opacity: 0,
-        duration: 1.5,
-        ease: "power4.out"
-    }, `mix+=${0.6 + index * 0.1}`);
-});
-
-heroImgItems.forEach((img, i) => {
-    introTl.from(img, {
-        scale: 0.4,
-        rotationY: i === 0 ? -45 : 45,
-        opacity: 0,
-        duration: 1.5,
-        ease: "back.out(1.5)",
-        transformPerspective: 1000
+        duration: 0.8,
+        ease: "power2.inOut",
+        onComplete: () => {
+            const splashCont = document.querySelector('.splash-container');
+            if (splashCont) splashCont.style.display = 'none';
+        }
+    }, "mix+=0.5")
+    .to("#main-content", {
+        opacity: 1,
+        scale: 1,
+        y: 0,
+        duration: 1.0,
+        ease: "elastic.out(1, 0.5)"
     }, "mix+=0.6");
-});
 
-introTl.call(() => {
-    window.scrollTo(0, 0);
-    initScrollAnimations();
-    ScrollTrigger.refresh();
-});
+    // Hero items entrance assembly
+    const heroTextItems = document.querySelectorAll('.assemble-item:not(.hero-image)'); 
+    const heroImgItems = document.querySelectorAll('.hero-image');
+
+    heroTextItems.forEach((item, index) => {
+        introTl.from(item, {
+            x: () => (Math.random() - 0.5) * 500,
+            y: () => (Math.random() - 0.5) * 500,
+            opacity: 0,
+            duration: 1.5,
+            ease: "power4.out"
+        }, `mix+=${0.6 + index * 0.1}`);
+    });
+
+    heroImgItems.forEach((img, i) => {
+        introTl.from(img, {
+            scale: 0.4,
+            rotationY: i === 0 ? -45 : 45,
+            opacity: 0,
+            duration: 1.5,
+            ease: "back.out(1.5)",
+            transformPerspective: 1000
+        }, "mix+=0.6");
+    });
+
+    introTl.call(() => {
+        window.scrollTo(0, 0);
+        initScrollAnimations();
+        if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+    });
+} else {
+    // Reveal immediately if GSAP is missing
+    document.getElementById('main-content').style.opacity = "1";
+    document.getElementById('main-content').style.transform = "none";
+    document.querySelector('.splash-container').style.display = 'none';
+}
 
 // =====================================================================
 // PROJECTS SLIDER & FLIP CARDS
